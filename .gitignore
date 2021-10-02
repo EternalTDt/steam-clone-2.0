@@ -1,0 +1,8 @@
+*.cpython
+*.log
+*.pot
+*.pyc
+__pycache__
+data
+static
+venv

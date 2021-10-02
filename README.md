@@ -25,7 +25,7 @@
 
 ## Как запустить проект у себя?
 
-1. git clone https://github.com/EternalTDt/steam-clone
+1. git clone https://github.com/EternalTDt/steam-clone-2.0
 2. pip install -r requirements.txt
 3. cd steam
 4. sudo docker-compose build

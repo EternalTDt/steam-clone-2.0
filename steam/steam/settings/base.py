@@ -23,9 +23,11 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'cart.apps.CartConfig',
     'core.apps.CoreConfig',
+    'api.apps.ApiConfig',
 
     # 3d party apps
     'ckeditor',
+    'coverage',
 ]
 
 MIDDLEWARE = [

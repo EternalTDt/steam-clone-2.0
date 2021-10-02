@@ -7,6 +7,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mainpage.urls')),
     path('users/', include('users.urls')),
+    path('api/', include('api.routers')),
 ]
 
 if settings.DEBUG:

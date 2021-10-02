@@ -18,8 +18,9 @@ class ProductListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # Add in a QuerySet of all the books
-        context['products'] = Product.objects.all().order_by('name')
-        return context
+        if Product.objects.all().count() > 0:
+            context['products'] = Product.objects.all().order_by('name')
+            return context
 
 class ProductDetailView(DetailView):
     model = Product

@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     # 3d party apps
     'ckeditor',
     'coverage',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

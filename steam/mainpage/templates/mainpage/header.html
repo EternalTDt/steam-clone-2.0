@@ -12,12 +12,21 @@
                     Install Steam
                 </button>
             </li>
+            {% if user.is_authenticated %}
+            <li class="subheader-menu-item">
+                <a href="#">Profile</a>
+            </li>
+            <li class="subheader-menu-item">
+                <a href="{% url 'logout' %}">Logout</a>
+            </li>           
+            {% else %}
             <li class="subheader-menu-item">
                 <a href="{% url 'login' %}">Login</a>
             </li>
             <li class="subheader-menu-item">
                 <a href="{% url 'reg' %}">Sign In</a>
             </li>
+            {% endif %}
         </ul>
     </nav>
     <div class="line"></div>

@@ -1,0 +1,16 @@
+{% extends 'mainpage/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Logout
+{% endblock title %}
+ 
+{% block head %}
+{% endblock head %}
+
+{% block main %}
+    <section class="section">
+        <a href="{% url 'login' %}">Login again</a>
+    </section>
+{% endblock main %}

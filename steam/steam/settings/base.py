@@ -102,6 +102,8 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'
+
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = socket.gethostbyname('smtp.gmail.com')

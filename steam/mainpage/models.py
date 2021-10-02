@@ -50,6 +50,9 @@ class Product(models.Model):
     title_image = models.ImageField("Главная картинка", default="default.jpg", upload_to="title_images", blank=True)
     company = models.ManyToManyField(Company, related_name="company", verbose_name="Компания")
 
+    def get_absolute_url(self):
+        return reverse('product_detail', args=[self.slug])
+
     def __str__(self) -> str:
         return self.name
 

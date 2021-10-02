@@ -17,4 +17,10 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     ordering = ['name']
 
-admin.site.register(Category)
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name', 'slug')
+    list_display_links = ('slug', 'name',)
+    prepopulated_fields = {'slug': ('name',)}
+    search_fields = ('name',)
+    ordering = ['name']

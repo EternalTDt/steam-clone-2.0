@@ -15,7 +15,7 @@ def register(request):
 			send_mail(
 				'You have successfully registered on Steam. <no-reply>',
 				f'Hi, {username}.\nThank you for register on Steam. \n\nWe remind you, that you have chosen username {username}. You can edit any information in your own profile.\n\nSee ya.',
-				settings.base.EMAIL_HOST_USER,
+				settings.EMAIL_HOST_USER,
 				[f'{email}'],
 				fail_silently=False,
 			)

@@ -1,0 +1,38 @@
+{% extends 'mainpage/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Steam | Store
+{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'mainpage/css/game-detail.css' %}">
+{% endblock head %}
+
+{% block main %}
+<section class="content">
+
+    {% for product in products %}
+    <a href="{{ product.get_absolute_url }}" class="game-card game-card__big">
+        <div class="game-photo store">
+            <img src="{{ product.store_image.url }}" alt="">
+        </div>
+        <div class="game-info">
+            <h4>{{ product.name }}</h4>
+            <span class="game-genre">{{ product.category.name }}</span>
+            <div class="game-price"><span>${{ product.price }}</span>
+            
+                <div class="game-platforms">
+                    <img src="/media/ps.svg" alt="Playstation"><img src="/media/xbox.svg" alt="Xbox">
+                </div>
+            
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+    
+
+
+</section>
+{% endblock main %}

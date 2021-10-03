@@ -4,6 +4,17 @@ from ckeditor.fields import RichTextField
 from django_countries.fields import CountryField
 
 
+class CommonRequirements(models.Model):
+    processor = models.CharField("Процессор", max_length=100, blank=True, null=True)
+    video_card = models.CharField("Видеокарта", max_length=100, blank=True, null=True)
+    os = models.CharField("Операционная система", max_length=100, blank=True, null=True)
+    ram = models.CharField("Оперативная память", max_length=100, blank=True, null=True)
+    disk_storage = models.CharField("Место на диске", max_length=100, blank=True, null=True)
+
+    class Meta:
+        abstract = True
+
+
 class Category(models.Model):
     name = models.CharField(
         max_length=200,
@@ -40,7 +51,7 @@ class Company(models.Model):
 
 
 
-class Product(models.Model):
+class Product(CommonRequirements):
     name = models.CharField("Название", max_length=150, blank=True)
     category = models.ForeignKey(Category, related_name="products", on_delete=models.CASCADE, null=True, blank=True)
     slug = models.SlugField("Ссылка", max_length=130, unique=True, blank=True, null=True)
@@ -51,6 +62,7 @@ class Product(models.Model):
     company = models.ManyToManyField(Company, related_name="company", verbose_name="Компания")
     detail_images = models.ImageField("Подробная картинка", default="default.jpg", upload_to="detail_images", blank=True)
     platforms = models.CharField("Платформы", max_length=150, blank=True)
+    store_image = models.ImageField("Картинка в каталоге", default="default.jpg", upload_to="store_images", blank=True)
 
     def get_absolute_url(self):
         return reverse('product_detail', args=[self.slug])

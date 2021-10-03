@@ -37,7 +37,7 @@
 
 		<ul class="char-nav">
 			<li class="char-nav-link char-nav-link-active">Description</li>
-			<li class="char-nav-link">Videos</li>
+			<li class="char-nav-link">System requirements</li>
 			<li class="char-nav-link">Add ons</li>
 			<li class="char-nav-link">Reviews</li>
 			<li class="char-nav-link">Extras</li>
@@ -48,16 +48,14 @@
                 {{ product.description|safe }}
 			</li>
 			<li class="char-tabs-all">
-
-					Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit. Quis aperiam quae, explicabo nisi libero minus in, cumque sapiente atque
-						consequatur iure quaerat vero adipisci quibusdam possimus doloremque ex, fugiat quas tempora
-						deleniti perferendis. Esse, eius sapiente.<br> Magnam vero a ullam? Odit tempora hic repellat,
-						corrupti fugit voluptate maxime culpa perferendis aut dolores dolorum? Quibusdam, at debitis et
-						laborum atque accusamus cum unde deserunt. Rerum, quidem. Deserunt provident incidunt quidem
-						nihil odio blanditiis doloribus fuga consequatur voluptatibus mollitia delectus magni, debitis,
-						quae alias? Enim amet reiciendis odio totam numquam dolores voluptatibus unde eligendi vel sed
-						fuga, fugiat, sequi eveniet voluptates ut!
+                <h2>Recommended System requirements:</h2>
+                <div class="system-requirements">
+                <span>Processor: <b>{{ product.processor}}</b></span>
+                <span>Videocard: <b>{{ product.video_card }}</b></span>
+                <span>RAM: <b>{{ product.ram }}</b></span>
+                <span>OS: <b>{{ product.os }}</b></span>
+                <span>Disk storage: <b>{{ product.disk_storage }}</b></span>
+                </div>
 			</li>
 			<li class="char-tabs-all">
 				Lorem ipsum, dolor sit amet consectetur

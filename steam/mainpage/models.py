@@ -49,6 +49,8 @@ class Product(models.Model):
     price = models.DecimalField("Стоимость", max_digits=10, decimal_places=2, blank=True)
     title_image = models.ImageField("Главная картинка", default="default.jpg", upload_to="title_images", blank=True)
     company = models.ManyToManyField(Company, related_name="company", verbose_name="Компания")
+    detail_images = models.ImageField("Подробная картинка", default="default.jpg", upload_to="detail_images", blank=True)
+    platforms = models.CharField("Платформы", max_length=150, blank=True)
 
     def get_absolute_url(self):
         return reverse('product_detail', args=[self.slug])

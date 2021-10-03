@@ -4,6 +4,5 @@
 *.pyc
 __pycache__
 data
-static
 venv
 htmlcov

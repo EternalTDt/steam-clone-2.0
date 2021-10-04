@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-    Games
+    Software
 {% endblock title %}
 
 {% block head %}
@@ -13,15 +13,15 @@
 {% block main %}
 <section class="content">
 
-    {% for product in products %}
-    <a href="{{ product.get_absolute_url }}" class="game-card game-card__big">
+    {% for programm in programms %}
+    <a href="{{ programm.get_absolute_url }}" class="game-card game-card__big">
         <div class="game-photo store">
-            <img src="{{ product.store_image.url }}" alt="">
+            <img src="{{ programm.store_image.url }}" alt="">
         </div>
         <div class="game-info">
-            <h4>{{ product.name }}</h4>
-            <span class="game-genre">{{ product.category.name }}</span>
-            <div class="game-price"><span>${{ product.price }}</span>
+            <h4>{{ programm.name }}</h4>
+            <span class="game-genre">{{ programm.category.name }}</span>
+            <div class="game-price"><span>${{ programm.price }}</span>
             
                 <div class="game-platforms">
                     <img src="/media/ps.svg" alt="Playstation"><img src="/media/xbox.svg" alt="Xbox">

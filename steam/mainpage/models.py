@@ -4,6 +4,17 @@ from ckeditor.fields import RichTextField
 from django_countries.fields import CountryField
 
 
+class ProductType(models.Model):
+    name = models.CharField("Тип товара", max_length=255)
+    
+    class Meta:
+        verbose_name = "Тип"
+        verbose_name_plural = "Типы"
+
+    def __str__(self) -> str:
+        return self.name
+
+
 class CommonRequirements(models.Model):
     processor = models.CharField("Процессор", max_length=100, blank=True, null=True)
     video_card = models.CharField("Видеокарта", max_length=100, blank=True, null=True)
@@ -54,6 +65,7 @@ class Company(models.Model):
 class Product(CommonRequirements):
     name = models.CharField("Название", max_length=150, blank=True)
     category = models.ForeignKey(Category, related_name="products", on_delete=models.CASCADE, null=True, blank=True)
+    product_type = models.ForeignKey(ProductType, related_name="type", on_delete=models.CASCADE, null=True, blank=True)
     slug = models.SlugField("Ссылка", max_length=130, unique=True, blank=True, null=True)
     description = RichTextField()
     release_date = models.DateField("Дата выхода", auto_now_add=True)

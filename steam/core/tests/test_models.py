@@ -1,5 +1,6 @@
 from django.test import TestCase
 from mainpage.models import Product, Company, Category
+from users.models import Profile
 from django.utils import timezone
 from django.urls import reverse
 
@@ -55,3 +56,22 @@ class CategoryTest(TestCase):
         w = self.create_category()
         self.assertTrue(isinstance(w, Category))
         self.assertEqual(w.name, "Adventure")
+
+
+class ProfileTest(TestCase):
+
+    def create_profile(
+        self, 
+        phone="test",
+        address="test",
+        city="test"):
+
+        return Profile.objects.create(
+            phone=phone,
+            address=address,
+            city=city)
+
+    def test_profile_creation(self):
+        w = self.create_profile()
+        self.assertTrue(isinstance(w, Profile))
+        self.assertEqual(w.phone, "test")

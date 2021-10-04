@@ -27,6 +27,7 @@ INSTALLED_APPS = [
 
     # 3d party apps
     'ckeditor',
+    'crispy_forms',
     'coverage',
     'rest_framework',
 ]
@@ -104,7 +105,7 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'profile'
 LOGOUT_REDIRECT_URL = 'login'
 
 

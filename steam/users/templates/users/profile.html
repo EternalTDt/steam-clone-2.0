@@ -1,0 +1,54 @@
+{% extends 'mainpage/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Profile | {{ user.username }}
+{% endblock title %}
+ 
+{% block head %}
+<link rel="stylesheet" href="{% static 'users/css/style.css' %}">
+{% endblock head %}
+
+{% block main %}
+    <section class="section" style="margin-bottom: 40px;">
+        <div class="user-info">
+            <img src="{{ user.profile.img.url }}" alt="image: user avatar">
+            <div class="more-info">
+                <span><b>{{ user.first_name }} {{ user.last_name }}</b></span>
+                <span>Email: <b>{{ user.email }}</b></span>
+                <span>Phone: <b>{{ user.profile.phone }}</b></span>
+            </div>
+        </div>
+        <form method="POST" class="reg-form update-form">
+            {% csrf_token %}
+            <div class="main-block">
+                <div class="first-block">
+                    <h3>Personal info</h3>
+                    <span>Username</span>
+                    {{ update_user.username }}
+                    <span>First name</span>
+                    {{ update_user.first_name }}
+                    <span>Last name</span>
+                    {{ update_user.last_name }}
+                    <span>Profile Image</span>
+                    {{ img_profile.img }}
+                    <span>Phone</span>
+                    {{ img_profile.phone }}
+                    <span>Your email</span>
+                    {{ update_user.email }}
+                </div>
+                <div class="second-block">
+                    <h3>Adress</h3>
+                    <span>Your country</span>
+                    {{ img_profile.country }}
+                    <span>Your city</span>
+                    {{ img_profile.city }}
+                    <span>Your address</span>
+                    {{ img_profile.address }}
+                </div>
+            </div>
+            <button type="submit" class="button-reg">Update</button>
+        </form>
+    </section>
+{% endblock main %}

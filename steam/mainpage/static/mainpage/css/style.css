@@ -309,13 +309,15 @@ body {
 #id_email,
 #id_password,
 #id_password1,
-#id_password2 {
+#id_password2,
+#id_country,
+input[type="text"] {
     outline: none;
     border: 2px solid #2C313D;
     background-color: transparent;
     border-radius: 8px;
     padding: 10px;
-    color: #fff;
+    color: #abd9ff;
     margin-bottom: 10px;
 }
 

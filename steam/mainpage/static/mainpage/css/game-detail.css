@@ -504,3 +504,45 @@
 .system-requirements span b {
     color: #fff;
 }
+
+.checkout-section {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 1320px;
+}
+
+.order-info {
+  color: #fff;
+}
+
+.items-info {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.items-info img {
+  margin-bottom: 10px;
+}
+
+.items-info span {
+  margin-bottom: 10px;
+}
+
+.items-info img {
+  max-width: 148px;
+  border-radius: 5px;
+  max-height: 220px;
+}
+
+.order-info {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+}

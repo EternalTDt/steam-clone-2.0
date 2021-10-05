@@ -1,0 +1,45 @@
+{% extends "mainpage/base.html" %}
+
+{% load static %}
+
+{% block title %}
+  Checkout
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'mainpage/css/game-detail.css' %}">
+{% endblock head %}
+
+{% block main %}
+  <section class="checkout-section">
+    <div class="order-info">
+      <h3>Your order</h3> <br>
+      <div class="items-info">
+        {% for item in cart %}
+            {% with product=item.product %}
+              <img src="{{ product.store_image.url }}" alt="">
+            {% endwith %}
+            <span>{{ item.quantity }}x {{ item.product.name }}</span>
+            <span><b>${{ item.total_price }}</b></span>
+        {% endfor %}
+      </div>
+      </ul>
+      <p>Total: <b>${{ cart.get_total_price }}</b></p>
+    </div>
+  
+    <form method="post" class="reg-form checkout-form">
+      <span>Your name</span>
+      {{ form.first_name }}
+      <span>Your last name</span>
+      {{ form.last_name }}
+      <span>Your email</span>
+      {{ form.email }}
+      <span>Your Address</span>
+      {{ form.address }}
+      <span>Your city</span>
+      {{ form.city }}
+      <p><input type="submit" value="Place order" class="button-reg"></p>
+      {% csrf_token %}
+    </form>
+  </section>
+{% endblock main %}

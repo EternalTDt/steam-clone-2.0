@@ -1,0 +1,19 @@
+{% extends "mainpage/base.html" %}
+
+{% load static %}
+
+{% block title %}
+  Thank You
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'mainpage/css/game-detail.css' %}">
+{% endblock head %}
+
+{% block main %}
+<section class="checkout-section">
+    <h1 style="color: #fff">Thank you</h1>
+    <p style="color: #fff">Your order has been successfully completed. Your order number is
+    <strong style="color: #fff">{{ order.id }}</strong>.</p>
+</section>
+{% endblock main %}

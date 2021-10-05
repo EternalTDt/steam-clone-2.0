@@ -12,12 +12,6 @@
 {% endblock head %}
 
 {% block main %}
-        <!-- <th>Image</th>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Remove</th>
-        <th>Unit price</th>
-        <th>Price</th> -->
         <section class="content cart-section">
         {% for item in cart %}
             {% with product=item.product %}
@@ -48,6 +42,6 @@
         </section>
         <div class="section-total-price">
             <span class="total-price">Total: <b>${{ cart.get_total_price }}</b></span>
-            <a href="#" class="button-reg cart-btn">Checkout</a>
+            <a href="{% url 'orders:order_create' %}" class="button-reg cart-btn">Checkout</a>
         </div>
 {% endblock main %}

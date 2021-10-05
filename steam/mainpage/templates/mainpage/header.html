@@ -54,7 +54,16 @@
                 <img src="/media/valve-index.png" alt="img: valve index">
             </li>
             <li class="header-menu-item">
-                <a href="">Cart</a><span>0</span>
+                <a href="{% url 'cart:cart_detail' %}">Cart</a>
+                <span>
+                    {% with total_items=cart|length %}
+                        {% if total_items > 0 %}
+                        {{ total_items }}
+                        {% else %}
+                        0
+                        {% endif %}
+                    {% endwith %}
+                </span>
             </li>
         </ul>
     </nav>

@@ -28,8 +28,13 @@
 					<li>Platforms: <span>{{ product.platforms }}</span></li>
 				</ul>
 				<div class="game-price">
-					<span>${{ product.price }}</span><button class="btn-cart">Buy</button>
+					<span>${{ product.price }}</span>
 				</div>
+				<form action="{% url 'cart:cart_add' product.id %}" method="post">
+					{{ cart_product_form }}
+					{% csrf_token %}
+					<input class="btn-cart" type="submit" value="Add to cart">
+				  </form>
 				<button class="btn-video"><img src="/media/play.svg" alt="">Watch trailer</button>
 			</div>
 		</div>

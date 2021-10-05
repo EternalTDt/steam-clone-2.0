@@ -1,0 +1,53 @@
+{% extends "mainpage/base.html" %}
+
+{% load static %}
+
+{% block title %}
+  Your shopping cart
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'cart/css/cart.css' %}">
+    <link rel="stylesheet" href="{% static 'mainpage/css/game-detail.css' %}">
+{% endblock head %}
+
+{% block main %}
+        <!-- <th>Image</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Remove</th>
+        <th>Unit price</th>
+        <th>Price</th> -->
+        <section class="content cart-section">
+        {% for item in cart %}
+            {% with product=item.product %}
+            <div class="product-card">
+                <div class="card-top">
+                    <h2>{{ product.name }}</h2>
+                    <span>${{ item.price }}</span>
+                </div>
+                <a href="{{ product.get_absolute_url }}">
+                    <img src="{{ product.store_image.url }}">
+                </a>
+                <span>Total: ${{ item.total_price }}</span>
+                <div class="cart-forms">
+                    <form action="{% url 'cart:cart_add' product.id %}" method="post" class="quantity-update-form">
+                        {{ item.update_quantity_form.quantity }}
+                        {{ item.update_quantity_form.override }}
+                        <input type="submit" value="Update" id="card-update-btn">
+                        {% csrf_token %}
+                    </form>
+                    <form action="{% url 'cart:cart_remove' product.id %}" method="post">
+                        <input type="submit" value="Remove" id="card-update-btn">
+                        {% csrf_token %}
+                    </form>
+                  </div>
+            </div>
+            {% endwith %}
+        {% endfor %}
+        </section>
+        <div class="section-total-price">
+            <span class="total-price">Total: <b>${{ cart.get_total_price }}</b></span>
+            <a href="#" class="button-reg cart-btn">Checkout</a>
+        </div>
+{% endblock main %}
